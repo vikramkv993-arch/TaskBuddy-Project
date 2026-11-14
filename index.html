@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090a0d" />
+    <meta
+      name="description"
+      content="TaskBuddy is a friendly task manager for keeping your day on track."
+    />
+    <title>TaskBuddy — Your friendly task manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <h1>Task<span>Buddy</span></h1>
+        <p class="tagline">Your friendly task manager</p>
+      </header>
+
+      <section class="task-panel" aria-label="Task manager">
+        <form class="task-form" id="task-form">
+          <label class="sr-only" for="task-input">Enter your task</label>
+          <div class="input-wrap">
+            <input
+              id="task-input"
+              name="task"
+              type="text"
+              placeholder="Enter your task"
+              autocomplete="off"
+              maxlength="160"
+              required
+            />
+          </div>
+          <button class="add-button" type="submit">
+            <span aria-hidden="true">+</span>
+            Add Task
+          </button>
+          <div class="form-options">
+            <label>
+              <span class="sr-only">Priority</span>
+              <select id="priority-select" name="priority">
+                <option value="Low">Low </option>
+                <option value="Medium" selected>Medium </option>
+                <option value="High">High </option>
+              </select>
+            </label>
+            <label>
+              <span class="sr-only">Category</span>
+              <select id="category-select" name="category">
+                <option value="General" selected>General</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+              </select>
+            </label>
+          </div>
+        </form>
+
+        <ul class="task-list" id="task-list" aria-live="polite"></ul>
+
+        <div class="overview">
+          <div class="progress-copy">
+            <span id="progress-count">0 of 0 tasks completed</span>
+          </div>
+          <div
+            class="progress-track"
+            id="progress-track"
+            role="progressbar"
+            aria-label="Tasks completed"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <span class="progress-fill" id="progress-fill"></span>
+          </div>
+        </div>
+
+        <p class="storage-notice" id="storage-notice" role="status" hidden></p>
+
+        <footer class="list-footer">
+          <button class="clear-button" id="clear-button" type="button" hidden>
+            Clear All Tasks
+          </button>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
